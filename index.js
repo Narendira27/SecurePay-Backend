@@ -4,7 +4,11 @@ const rootRouter = require('./routes/index.js')
 
 const app = express()
 
-app.use(cors())
+const corsOptions = {
+  origin: 'https://securepay-frontend.onrender.com'
+};
+
+app.use(cors(corsOptions))
 app.use(express.json())
 
 app.use('/api/v1', rootRouter)
