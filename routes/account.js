@@ -9,10 +9,15 @@ const router = express.Router()
 router.get('/balance', middlewareFunction, async (req, res) => {
 
     const Id = req.userId
+    
+    try {
+        const response = await Bank.findOne({ userId: Id })
 
-    const response = await Bank.findOne({ userId: Id })
-
-    res.status(200).json({ 'Balance': response.balance })
+        res.status(200).json({ 'Balance': response.balance })
+    }
+    catch (e) {
+        res.status(400).json({ "message": "User Not Found" })
+    }
 })
 
 
