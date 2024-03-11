@@ -5,7 +5,7 @@ const rootRouter = require('./routes/index.js')
 const app = express()
 
 const corsOptions = {
-  origin: 'https://securepay-frontend.onrender.com'
+  origin: ['https://securepay-frontend.onrender.com', 'https://securepay.narendira.tech'],
 };
 
 app.use(cors(corsOptions))
